@@ -1,0 +1,64 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-inamillion-prod-233630-authRole",
+      "UnauthRoleArn": "arn:aws:iam::505548292484:role/amplify-inamillion-prod-233630-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::505548292484:role/amplify-inamillion-prod-233630-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-inamillion-prod-233630-deployment",
+      "UnauthRoleName": "amplify-inamillion-prod-233630-unauthRole",
+      "StackName": "amplify-inamillion-prod-233630",
+      "StackId": "arn:aws:cloudformation:us-east-1:505548292484:stack/amplify-inamillion-prod-233630/0eda0420-5a29-11eb-87da-0e2bba40f027",
+      "AmplifyAppId": "d1nldzpe4ompne"
+    }
+  },
+  "function": {
+    "stripeCheckout": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-01-19T07:46:26.715Z",
+      "lastPackageTimeStamp": "2021-01-19T07:46:27.449Z",
+      "distZipFilename": "stripeCheckout-637a72452f3947347175-build.zip",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-inamillion-prod-233630-deployment/amplify-cfn-templates/function/stripeCheckout-cloudformation-template.json",
+        "logicalId": "functionstripeCheckout"
+      },
+      "lastPushTimeStamp": "2021-01-19T07:48:08.274Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:505548292484:function:stripeCheckout-prod",
+        "Name": "stripeCheckout-prod",
+        "LambdaExecutionRole": "inamillionLambdaRole083a2e7d-prod"
+      },
+      "lastPushDirHash": "q6/x9P8cMIdQvOawqDCyti45kws="
+    }
+  },
+  "api": {
+    "stripeapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "stripeCheckout",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-inamillion-prod-233630-deployment/amplify-cfn-templates/api/stripeapi-cloudformation-template.json",
+        "logicalId": "apistripeapi"
+      },
+      "lastPushTimeStamp": "2021-01-19T07:48:08.274Z",
+      "output": {
+        "ApiName": "stripeapi",
+        "RootUrl": "https://qweyofggad.execute-api.us-east-1.amazonaws.com/prod",
+        "ApiId": "qweyofggad"
+      },
+      "lastPushDirHash": "6s5Ocs9y2SMti8Eb3uIIxJKHVGQ="
+    }
+  }
+}
